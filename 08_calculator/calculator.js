@@ -1,4 +1,7 @@
-const add = function() {
+const add = function(...numbers) {
+    let sum = 0;
+    for (let number of numbers) sum += Number(number);
+    return sum;
 	
 };
 

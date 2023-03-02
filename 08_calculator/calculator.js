@@ -15,18 +15,19 @@ const subtract = function(...numbers) {
 };
 
 const sum = function(...numbers) {
-    numbers = numbers[0];
+    numbers = numbers[0];// gets the first item in the ...numbers array
     return numbers.reduce((total, num) => total + num, 0);
 }
 
 const multiply = function(...numbers) {
-    numbers = numbers[0]
+    numbers = numbers[0]// gets the first item in the ...numbers array
     return numbers.reduce((total, num) => total * num, 1);
        
 };
 
-const power = function() {
-
+const power = function(a,b) {
+    let result = Math.pow(a,b)
+    return result
 };
 
 const factorial = function() {

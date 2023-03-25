@@ -1,15 +1,24 @@
 const caesar = function (string, shiftfactor) {
+  const splitString = string.split("");
+  const alphabetRange = /[a-zA-Z]/;
 
-    const splitString = string.split("");
-        
-    for (let index = 0; index < splitString.length; index++) {
-        const charCode = splitString[index].charCodeAt();
-        if (charCode === 44 || charCode === 33 || charCode === 32) continue;
-        const charCodeShift = charCode + shiftfactor;
-        splitString[index] = String.fromCharCode(charCodeShift)
-    };
-    
-    return splitString.join("");
+  for (let index = 0; index < splitString.length; index++) {
+    const charCode = splitString[index].charCodeAt();
+    const charCodeShift = charCode + shiftfactor;
+
+    if (alphabetRange.test(splitString[index])) {
+      let shiftedCharCode;
+      if (charCode >= 65 && charCode <= 90) {
+        shiftedCharCode = ((charCodeShift - 65) % 26) + 65;
+      } else if (charCode >= 97 && charCode <= 122) {
+        shiftedCharCode = ((charCodeShift - 97) % 26) + 97;
+      } else {
+        shiftedCharCode = charCode;
+      }
+      splitString[index] = String.fromCharCode(shiftedCharCode);
+    }
+  }
+  return splitString.join("");
 };
 // Do not edit below this line
 module.exports = caesar;

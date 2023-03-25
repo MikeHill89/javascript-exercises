@@ -4,14 +4,13 @@ const caesar = function (string, shiftfactor) {
 
   for (let index = 0; index < splitString.length; index++) {
     const charCode = splitString[index].charCodeAt();
-    const charCodeShift = charCode + shiftfactor;
-
     if (alphabetRange.test(splitString[index])) {
       let shiftedCharCode;
+
       if (charCode >= 65 && charCode <= 90) {
-        shiftedCharCode = ((charCodeShift - 65) % 26) + 65;
+        shiftedCharCode = ((charCode + shiftfactor - 65) % 26) + 65;
       } else if (charCode >= 97 && charCode <= 122) {
-        shiftedCharCode = ((charCodeShift - 97) % 26) + 97;
+        shiftedCharCode = ((charCode + shiftfactor - 97) % 26) + 97;
       } else {
         shiftedCharCode = charCode;
       }

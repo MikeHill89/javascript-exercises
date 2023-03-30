@@ -9,8 +9,14 @@ const caesar = function (string, shiftfactor) {
 
       if (charCode >= 65 && charCode <= 90) {
         shiftedCharCode = ((charCode + shiftfactor - 65) % 26) + 65;
+        if (shiftedCharCode < 65 || shiftedCharCode > 90) {
+          shiftedCharCode += 26; 
+        }
       } else if (charCode >= 97 && charCode <= 122) {
         shiftedCharCode = ((charCode + shiftfactor - 97) % 26) + 97;
+        if (shiftedCharCode < 97 || shiftedCharCode > 122) {
+            shiftedCharCode += 26;
+        }
       } else {
         shiftedCharCode = charCode;
       }

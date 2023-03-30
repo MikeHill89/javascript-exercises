@@ -1,11 +1,13 @@
 const caesar = function (string, shiftfactor) {
   // take the string and split it into an array of characters
   const splitString = string.split("");
-  // used to check if an index position of splitString matches a characters
+  // used to check if an index position of splitString matches a character
   // of the alphabet.
   const alphabetRange = /[a-zA-Z]/;
 
-  // loops over the length of the splitString array
+  // loops over the length of the splitString array to shift the charCode of
+  // each character at each index by the shiftfactor and return it back to a
+  // string.
   for (let index = 0; index < splitString.length; index++) {
     //get the charcode of the character at the index position
     const charCode = splitString[index].charCodeAt();
